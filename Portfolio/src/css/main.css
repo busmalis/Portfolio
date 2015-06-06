@@ -1,0 +1,75 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	text-align: center;
+}
+
+#container {
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+}
+
+#headerWrapper {
+	background-color: white;
+	width: 100%;
+	height: 80px;
+	top: 0px;
+	text-align: right;
+	font-size: 250%;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#headerWrapper b:hover {
+	color: orange;
+}
+
+#headerLeft {
+	float: left;
+	margin-left: 50px;
+}
+
+#headerRight {
+	float: right;
+	margin-right: 50px;
+}
+
+#contentWrapper {
+	width: 100%;
+	height: 700px;
+	position: inherit;
+}
+
+#contentWrapperLeft {
+	background-color: orange;
+	width: 40%;
+	height: 100%;
+	position: inherit;
+	float: left;
+	background-image: url("../../lib/path3811.png");
+	background-repeat: no-repeat;
+	background-position: center;	
+}
+
+#contentWrapperRight {
+	background-color: white;
+	width: 60%;
+	height: 100%;
+	position: inherit;
+	float: right;
+}
+
+#footer {
+	background-color: white;
+	width: 100%;
+	height: 50px;
+	position: inherit;
+	bottom: 0px;
+	text-align: center;
+	margin-top: 20px;
+	padding-top: 20px;
+	color: gray;
+}
