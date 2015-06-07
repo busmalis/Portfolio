@@ -3,7 +3,6 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 <script src="scripts/MainController.js"></script>
-
 <link rel="stylesheet" href="css/main.css">
 
 <body ng-app="portfolioApp">
@@ -12,26 +11,33 @@
 		<div id="headerWrapper">
 			<div id="headerLeft">
 				<b>JOHAN REMES</b>
-			</div> 
+			</div>
 			<div id="headerRight">
 				<b>INFOS</b>
 			</div>
 		</div>
-		
-		<div id="contentWrapper">
+
+		<div id="contentWrapper" ng-controller="mainCtrl">
 			<div id="contentWrapperLeft">
+				<div id="attributeBox">
+				<ul>
+				<b ng-repeat="att in attributes" ng-click="setAttribute(att)">
+					{{ att.name }}
+				</b>
+				</ul>
+				</div>
 			</div>
-			
-			<div id="contentWrapperRight" ng-controller="mainCtrl">
-				<h1>{{ chosenAttribute }}</h1>
-				<h3>{{ chosenAttributeText }}</h3>
+
+			<div id="contentWrapperRight">
+				<h1>{{ getAttribute() }}</h1>
+				<h3>{{ getAttributeText() }}</h3>
 			</div>
 		</div>
-	
-		<div id="footer">
-			© 2015 By Johan Remes
+
+		<div id="footer" ng-controller="footerCtrl">
+			{{ getCopyright() }}
 		</div>
-	
+
 	</div>
 
 </body>

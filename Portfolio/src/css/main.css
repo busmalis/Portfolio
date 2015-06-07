@@ -54,6 +54,10 @@ body {
 	background-position: center;	
 }
 
+#contentWrapperLeft b:hover {
+	color: white;	
+}
+
 #contentWrapperRight {
 	background-color: white;
 	width: 60%;
@@ -72,4 +76,12 @@ body {
 	margin-top: 20px;
 	padding-top: 20px;
 	color: gray;
+}
+
+#attributeBox {
+	width: 40%;
+	height: 20%;
+	margin-top: 10%;
+	margin-left: 30%;
+	font-size: 40px;
 }
