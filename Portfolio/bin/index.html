@@ -5,32 +5,82 @@
 <script src="scripts/MainController.js"></script>
 <link rel="stylesheet" href="css/main.css">
 
+<head>
+<title>Temp Name</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
 <body ng-app="portfolioApp">
 
-	<div id="container">
+	<div id="container" ng-controller="mainCtrl">
 		<div id="headerWrapper">
-			<div id="headerLeft">
-				<b>JOHAN REMES</b>
-			</div>
+			<div id="headerLeft">Temp Name</div>
 			<div id="headerRight">
-				<b>INFOS</b>
+				<span ng-click="setShowInfos()">INFOS</span>
 			</div>
 		</div>
 
-		<div id="contentWrapper" ng-controller="mainCtrl">
+		<div id="contentWrapper">
+
 			<div id="contentWrapperLeft">
 				<div id="attributeBox">
-				<ul>
-				<b ng-repeat="att in attributes" ng-click="setAttribute(att)">
-					{{ att.name }}
-				</b>
-				</ul>
+					<ul>
+						<span ng-repeat="att in attributes" ng-click="setAttribute(att)">
+							{{ att.name }} </span>
+					</ul>
 				</div>
 			</div>
 
-			<div id="contentWrapperRight">
+			<!-- ATTRIBUTES DESCRIPTION -->
+			<div id="contentWrapperRight" ng-show="getShowAttribute()">
 				<h1>{{ getAttribute() }}</h1>
 				<h3>{{ getAttributeText() }}</h3>
+			</div>
+
+			<!-- INFOS -->
+			<div id="contentWrapperRight" ng-hide="getShowAttribute()">
+				<h1>{{ infosName }}</h1>
+				<h2>{{ infosDescriptionShort }}</h2>
+				<h3>{{ infosDescription }}</h3>
+				<div id="contentWrapperRightExpEdu">
+					<div id="contentWrapperRightExperience">
+						<h1>Experience</h1>
+						<table class="InfosTable"
+							ng-repeat="exp in infosExperience | orderBy:'-fromYear'"
+							ng-click="setShowInfosShortDescription(exp)">
+							<tr>
+								<td class="date">{{ exp.fromYear }} - {{ exp.toYear }}</td>
+								<td class="subject">{{ exp.companyName }}, {{ exp.location
+									}}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="content" ng-show="getShowInfosShortDescription(exp)">
+									{{ exp.shortDescription }}</td>
+								<td class="content" ng-hide="getShowInfosShortDescription(exp)">
+									{{ exp.description }}</td>
+							</tr>
+						</table>
+					</div>
+					<div id="contentWrapperRightEducation">
+						<h1>Education</h1>
+						<table class="InfosTable"
+							ng-repeat="edu in infosEducation | orderBy:'-fromYear'"
+							ng-click="setShowInfosShortDescription(edu)">
+							<tr>
+								<td class="date">{{ edu.fromYear }} - {{ edu.toYear }}</td>
+								<td class="subject">{{ edu.name }}, {{ edu.location }}</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td class="content" ng-show="getShowInfosShortDescription(edu)">
+									{{ edu.shortDescription }}</td>
+								<td class="content" ng-hide="getShowInfosShortDescription(edu)">
+									{{ edu.description }}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 

@@ -1,51 +1,109 @@
 var app = angular.module('portfolioApp', []);
-app
-		.controller(
-				'mainCtrl',
-				function($scope) {
-					
-					$scope.attributes = [ {
-						name : 'Android',
-						text : 'blablablaAndroid'
-					}, {
-						name : 'Java',
-						text : 'blablablaJava'
-					}, {
-						name : 'AngularJS',
-						text : 'blablablaAngularJS'
-					}, {
-						name : '.NET',
-						text : 'blablabla.NET'
-					} ];
-					$scope.Attribute = "Android";
-					$scope.AttributeText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-				
-					$scope.setAttribute = function(object){
-						$scope.Attribute = object.name;
-						$scope.AttributeText = object.text;
-					}
-				
-					$scope.getAttribute = function(){
-						return $scope.Attribute;
-					}
-				
-					$scope.getAttributeText = function(){
-						return $scope.AttributeText;
-					}
-				
-				});
+
+app.factory("attributeFactory",['$http', function($http){
+	
+	var urlBase = '';
+    var attributeFactory = {};
+    
+    attributeFactory.getAttributes = function(){
+    	return $http.get(urlBase + "GetAttributes")
+    	.success(function(data){
+    		attributeFactory = data.records;    		
+    	}); 
+    };
+	
+    return attributeFactory;
+    
+}]);
 
 app
-.controller(
-		'footerCtrl',
-		function($scope) {
+		.controller('mainCtrl', ['$scope', 'attributeFactory',
+				function($scope, attributeFactory) {
+
+					/*
+					 * MAIN
+					 * 
+					 */
 			
-			$scope.Copyright = "(c)"
-			$scope.Author = "Johan Remes"
-			$scope.Year = "2015";
+			getAttributes();
+
+		    function getAttributes() {
+		    	attributeFactory.getAttributes()
+		            .success(function (attributes) {
+		                $scope.attributes = attributes.records;
+		            })
+		            .error(function (error) {
+		                $scope.attributes = 'Unable to load attribute data: ' + error.message;
+		            });
+		    };
 			
-			$scope.getCopyright = function(){
-				return $scope.Copyright + " " + $scope.Year + " " + $scope.Author;
-			}
-		
-		});
+					$scope.Attribute = "";
+					$scope.AttributeText = "";
+
+					$scope.setAttribute = function(object) {
+						$scope.Attribute = object.name;
+						$scope.AttributeText = object.text;
+						$scope.setShowAttribute(1);
+					}
+
+					$scope.getAttribute = function() {
+						return $scope.Attribute;
+					}
+
+					$scope.getAttributeText = function() {
+						return $scope.AttributeText;
+					}
+
+					$scope.setShowInfos = function() {
+						$scope.setShowAttribute(0);
+					}
+
+					/*
+					 * INFOS
+					 * 
+					 */
+
+					$scope.infosName = "";
+					$scope.infosDescriptionShort = "";
+					$scope.infosDescription = "";
+					$scope.infosExperience = [];
+					$scope.infosEducation = [];
+
+					/*
+					 * Common
+					 * 
+					 */
+					$scope.showAttribute = 0;
+
+					$scope.getShowAttribute = function() {
+						return $scope.showAttribute;
+					}
+
+					$scope.setShowAttribute = function(value) {
+						$scope.showAttribute = value;
+					}
+
+					$scope.getShowInfosShortDescription = function(object) {
+						return object.show;
+					}
+
+					$scope.setShowInfosShortDescription = function(object) {
+						if (object.show == 1) {
+							object.show = 0;
+						} else {
+							object.show = 1;
+						}
+					}
+}]);
+
+app.controller('footerCtrl', function($scope) {
+
+	$scope.Copyright = "(c)";
+	$scope.Author = "Temp";
+	$scope.Year = "2015";
+
+	$scope.getCopyright = function() {
+		return $scope.Copyright + " " + $scope.Year + " " + $scope.Author;
+	}
+
+});
