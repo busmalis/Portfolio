@@ -1,0 +1,53 @@
+<div id="contentWrapper">
+
+	<!-- Profile -->
+	<div id="contentWrapperInfos" ng-hide="getShowAttribute()">
+		<img class="profile-image" src="lib/path3811.png">
+		<div class="profileTextContainer">
+			<div class="name">{{ name }}</div>
+			<div class="descriptionShort">{{ descriptionShort }}</div>
+			<div class="description">
+				<q>{{ description }}</q>
+			</div>
+
+		</div>
+		<div id="socials">
+			
+		<a class="linkedIn" target="_blank"
+					href="https://se.linkedin.com/pub/{{ linkedInName }}"></a>
+				
+		<a class="gitHub" target="_blank" href="https://github.com/{{ gitHubName }}"></a>
+		
+		</div>
+	</div>
+
+	<div id="contentWrapperExpEdu">
+
+		<!-- Experience -->
+		<div id="contentWrapperExperience">
+			<h1>Experience</h1>
+			<div class="InfosTable"
+				ng-repeat="exp in experience | orderBy:'-fromYear'">
+				<span class="date">{{ exp.fromYear }} - {{ exp.toYear }}</span> <span
+					class="content">
+					<h4>{{ exp.companyName}}</h4>
+					<p>{{ exp.descriptionShort }}</p>
+				</span>
+			</div>
+		</div>
+
+		<!-- Education -->
+		<div id="contentWrapperEducation">
+			<h1>Education</h1>
+			<div class="InfosTable"
+				ng-repeat="edu in education | orderBy:'-fromYear'">
+				<span class="date">{{ edu.fromYear }} - {{ edu.toYear }}</span> <span
+					class="content">
+					<h4>{{ edu.name }}</h4>
+					<p>{{ edu.descriptionShort }}</p>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="footer">Code by {{ name }}</div>
+</div>

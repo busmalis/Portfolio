@@ -1,0 +1,14 @@
+<div id="contentWrapper">
+
+	<!-- Projects -->
+	<div id="contentWrapperProjects">
+		<div id="ProjectWrapper" ng-repeat="project in projects">
+			<div id="ProjectWrapperBlock">
+				<h3>{{ project.name }}</h3>
+				<p>{{ project.descriptionShort }}</p>
+				<a href="#/projects/{{ projects.indexOf(project) }}">VIEW PROJECT</a>
+			</div>
+			<img class="projectImage" src="lib/{{ project.image }}.png">
+		</div>
+	</div>
+</div>

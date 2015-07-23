@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 <script
-	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.js"></script>
 <script src="scripts/MainController.js"></script>
 <link rel="stylesheet" href="css/main.css">
 
@@ -12,82 +14,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
-<body ng-app="portfolioApp">
+<body ng-app="portfolioApp" ng-controller="mainCtrl" resize>
 
-	<div id="container" ng-controller="mainCtrl">
-		<div id="headerWrapper">
-			<div id="headerContent">
-				<div id="headerLeft">Name</div>
-				<div id="headerRight">
-					<span ng-click="setShowInfos()">INFOS</span>
-				</div>
-			</div>
-		</div>
-
-		<div id="contentWrapper">
-			<!-- Infos -->
-			<div id="contentWrapperInfos" ng-hide="getShowAttribute()">
-				<img class="profile-image" src="lib/path3811.png">
-				<div class="name">{{ infosName }}</div>
-				<div class="descriptionShort">{{ infosDescriptionShort }}</div>
-				<div class="description">{{ infosDescription }}</div>
-
-				<div id="contentWrapperExpEdu">
-
-					<!-- Experience -->
-					<div id="contentWrapperExperience">
-						<h1>Experience</h1>
-						<div class="InfosTable-item"
-							ng-repeat="exp in infosExperience | orderBy:'-fromYear'"
-							ng-click="setShowInfosShortDescription(exp)">
-							<div class="date">{{ exp.fromYear }}/{{ exp.toYear }}</div>
-
-							<div class="header">
-								{{ exp.companyName}}, {{ exp.location }} <span class="content">
-									{{ exp.descriptionShort }}</span>
-							</div>
-
-							<div class="slideDown"
-								ng-hide="getShowInfosShortDescription(exp)"
-								class="InfosTable-item-expand-collapse-content">
-								<div class="text">
-									<span class="content"> {{ exp.description }}
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Education -->
-					<div id="contentWrapperEducation">
-						<h1>Education</h1>
-						<div class="InfosTable-item"
-							ng-repeat="edu in infosEducation | orderBy:'-fromYear'"
-							ng-click="setShowInfosShortDescription(edu)">
-							<div class="date">{{ edu.fromYear }}/{{ edu.toYear }}</div>
-							<div class="header">
-								{{ edu.name }}, {{ edu.location }} <span class="content">
-									{{ edu.descriptionShort }}</span>
-							</div>
-							<div class="slideDown"
-								ng-hide="getShowInfosShortDescription(edu)"
-								class="InfosTable-item-expand-collapse-content">
-								<div class="text">
-									<span class="content"> {{ edu.description }}</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- <div id="footer" ng-controller="footerCtrl">
-			{{ getCopyright() }} <a id="linkedIn" target="_blank"
-				href="https://se.linkedin.com/pub/johan-remes/60/a13/55">[in]</a>
-		</div> -->
-
+	<!-- Mobile Version -->
+	<div id="mobileVersionUnavailable" ng-hide="getShowMobileVersion()">
+		NO MOBILE VERSION AVAILABLE
+	</div> 
+	
+	<div id="container" ng-show="getShowMobileVersion()">
+		<div ng-include="'partial/header.html'"></div>
+		<div ng-view></div>
 	</div>
 
 </body>
+
 </html>
