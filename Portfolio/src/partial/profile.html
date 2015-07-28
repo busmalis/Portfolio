@@ -1,23 +1,20 @@
 <div id="contentWrapper">
 
 	<!-- Profile -->
-	<div id="contentWrapperInfos" ng-hide="getShowAttribute()">
-		<img class="profile-image" src="lib/path3811.png">
-		<div class="profileTextContainer">
-			<div class="name">{{ name }}</div>
-			<div class="descriptionShort">{{ descriptionShort }}</div>
-			<div class="description">
-				<q>{{ description }}</q>
+	<div id="contentWrapperProfile" ng-hide="getShowAttribute()">
+		<div id="profileImageWrapper">
+			<div id="profileTextContainer">
+				<p> {{ descriptionShort }} </p>
+				<p>{{ description }}</p>				
 			</div>
-
+			<img class="headerImage" src="lib/Fjugesta98.jpg">
 		</div>
+
 		<div id="socials">
-			
-		<a class="linkedIn" target="_blank"
-					href="https://se.linkedin.com/pub/{{ linkedInName }}"></a>
-				
-		<a class="gitHub" target="_blank" href="https://github.com/{{ gitHubName }}"></a>
-		
+			<a class="linkedIn" target="_blank"
+				href="https://se.linkedin.com/pub/{{ linkedInName }}"></a> <a
+				class="gitHub" target="_blank"
+				href="https://github.com/{{ gitHubName }}"></a>
 		</div>
 	</div>
 
@@ -25,7 +22,7 @@
 
 		<!-- Experience -->
 		<div id="contentWrapperExperience">
-			<h1>Experience</h1>
+			<h2>Experience</h2>
 			<div class="InfosTable"
 				ng-repeat="exp in experience | orderBy:'-fromYear'">
 				<span class="date">{{ exp.fromYear }} - {{ exp.toYear }}</span> <span
@@ -38,7 +35,7 @@
 
 		<!-- Education -->
 		<div id="contentWrapperEducation">
-			<h1>Education</h1>
+			<h2>Education</h2>
 			<div class="InfosTable"
 				ng-repeat="edu in education | orderBy:'-fromYear'">
 				<span class="date">{{ edu.fromYear }} - {{ edu.toYear }}</span> <span

@@ -38,13 +38,25 @@ html, body {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
-	font-family: Tahoma, Verdana, Segoe, sans-serif
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 1.0em;
+	line-height: 1.5;
 }
 
 #container {
 	width: 100%;
 	height: 100%;
 }
+
+#contentWrapper {
+	text-align: left;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
+}
+
+/********* HEADER **************/
 
 #headerWrapper {
 	width: 100%;
@@ -80,16 +92,10 @@ html, body {
 	margin-top: 10px;
 }
 
-#contentWrapper {
-	text-align: left;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-	position: absolute;
-}
+/********* END HEADER **************/
 
 /********* PROFILE **************/
-#contentWrapperInfos {
+#contentWrapperProfile {
 	width: calc(100% - 2 * 80px);
 	height: 40%;
 	margin-left: 80px;
@@ -98,47 +104,20 @@ html, body {
 	overflow: hidden;
 }
 
-.profileTextContainer {	
-	transform: translateY(50%);
-}
-
-#contentWrapperInfos .name {
-	font-size: 40px;
-	text-align: center;
-}
-
-#contentWrapperInfos .descriptionShort {
-	font-size: 30px;
-	text-align: center;
-}
-
-#contentWrapperInfos .description {
-	font-size: 20px;
-	text-align: center;
-}
-
-.contentWrapperInfosMaskLeft {
-	width: 10%;
-	height: 100%;
+#profileTextContainer {	
+	height: 400px;
+	width: 50%;
 	position: absolute;
-	left: 0px;
-	top: 0px;
-}
-
-.contentWrapperInfosMaskRight {
-	width: 10%;
-	height: 100%;
-	position: absolute;
-	right: 0px;
-	top: 0px;
+	transform: translateX(50%);
+	padding: 1em 0 0 0;
 }
 
 #contentWrapperExpEdu {
-	width: 100%;
+	width: 50%;
 	height: 45%;
 	margin-left: auto;
 	margin-right: auto;
-	overflow: hidden;
+	overflow: auto;
 	background-color: white;
 	position: relative;
 	bottom: 0px;
@@ -146,41 +125,24 @@ html, body {
 
 #contentWrapperExperience {
 	float: left;
-	width: calc(25% - 50px);
-	padding-left: 20%;
+	width: calc(50%);
 }
 
 #contentWrapperEducation {
 	float: right;
-	width: calc(25% - 50px);
-	padding-right: 20%;
+	width: calc(50%);
 }
 
-#socials {
-	background-color: #ff9e3e;
-	height: 45px;
-	position: absolute;
-	bottom: 0px;
-	margin-bottom: 10px;
-	transform: matrix(0.5, 0, 0, 0.5, 0, 0);	
-}
-
-.profile-image {
-	transform: scale(1.0, 1.0);
-	opacity: 0.1;
-	z-index: 1;
-	pointer-events: none;
-	position: absolute;
-	left: 10%;
-	right: 10%;
-	top: -150px;
+#profileImageWrapper {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
 }
 
 .InfosTable {
 	width: 100%;
 	height: 50px;
 	margin-bottom: 5px;
-	font-size: 20px;
 }
 
 .InfosTable .date {
@@ -206,41 +168,125 @@ html, body {
 /********* PROJECTS **************/
 #contentWrapperProjects {
 	width: calc(100% - 2 * 80px);
-	height: calc(100% - 160px);
-	margin-left: 80px;
+	height: calc(100% - 100px);
 	position: relative;
 	background-color: #ff9e3e;
 	overflow: auto;
 	background-color: white;
-	font-size: 20px;
+	left: 80px;
+}
+
+#projectHeaderImageWrapper {
+	height: 200px;
+	overflow: hidden;
+	width: 100%;
+}
+
+#ProjectHeader {
+	background-color: #ff9e3e;
+	height: 200px;
+}
+
+#ProjectHeader h1 {
+	width: 100%;
+	font-size: 4em;
+	text-align: center;
+	position: absolute;
 }
 
 #ProjectWrapper {
 	width: 100%;
-	height: 300px;
+	height: 400px;
 	display: table;
 }
 
-#ProjectWrapper:nth-child(even) {
-	text-align: right;
+#ProjectWrapper:nth-child(odd) {
 	right: 25%;
+	padding-left: 50%;
 }
 
-#ProjectWrapper:nth-child(even)>img {
+#ProjectWrapper:nth-child(odd) > .projectImageWrapper {
 	float: left;
 	left: 0px;
 }
 
 #ProjectWrapperBlock {
-	width: 600px;
-	height: 300px;
-	vertical-align: middle;
-	display: table-cell;
+	width: 40%;
+	height: 100%;
+ 	display: table-cell;
 	position: relative;
-	left: 30%;
+	padding: 1em 0 0 1em;
+	overflow: hidden;
+}
+
+#ProjectWrapperBlock h3 {
+	text-transform: uppercase;
+}
+
+.projectImageWrapper {
+	width: 50%;
+	height: 400px;
+	position: absolute;
+	overflow: hidden;
+	float: right;
+	right: 0px;
 }
 
 .projectImage {
+	width: 100%;
+	height: auto;
+	max-height: 400px;	
+	opacity: 1.0;
+	z-index: 1;
+	pointer-events: none;
+}
+
+/********* END PROJECTS **************/
+
+/********* PROJECT DETAILS **************/
+
+#contentWrapperProjectDetails {
+	height: calc(100% - 100px);
+	position: relative;
+	background-color: #ff9e3e;
+	overflow: auto;
+	background-color: white;
+	margin: 10px;
+}
+
+#ProjectDetailsHeader {
+	padding: 5px 0 0 5px;
+	background-color: #ff9e3e;
+	height: 200px;
+}
+
+#ProjectDetailsWrapperBlock {
+	width: 100%;
+	height: 100%;
+	display: table-cell;
+	position: relative;
+	text-align: left;
+	padding: 5px 0 0 5px;
+}
+
+#ProjectDetailsWrapper {
+	width: 50%;
+	height: 300px;
+	display: table;
+}
+
+#ProjectDetailsWrapper:nth-child(odd) {
+	text-align: right;
+	right: 0px;
+	padding-left: 50%;
+}
+
+#ProjectDetailsWrapper:nth-child(odd) > img {
+	float: left;
+	left: 0px;
+}
+
+.projectDetailsImage {
 	width: 50%;
 	height: 300px;
 	transform: scale(1.0, 1.0);
@@ -249,10 +295,42 @@ html, body {
 	pointer-events: none;
 	position: absolute;
 	float: right;
-	right: 0px;
+	right: 0px;	
 }
 
-/********* END PROJECTS **************/
+/********* END PROJECT DETAILS **************/
+
+/********* MOBILE **************/
+
+#mobileVersionUnavailableWrapper {
+	height: 100%;
+	width: 100%;
+}
+
+#mobileVersionUnavailable {
+	width: 270px;
+	height: 300px;
+	transform: translateY(50%);
+	margin-left: 35%;
+}
+
+.mobileVersionUnavailableText {
+	font-size: 8px;
+	font-weight: bold;
+	text-align: center;
+	color: grey;
+}
+
+.mobileVersionUnavailableImage {
+	height: 100%;
+	opacity: 1.0;
+	z-index: 1;
+	pointer-events: none;
+	
+}
+
+/********* END MOBILE **************/
+
 #footer {
 	background-color: white;
 	width: 100%;
@@ -264,16 +342,18 @@ html, body {
 	font-size: 10px;
 }
 
-#mobileVersionUnavailable {
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-	background: black;
-	color: #ff9e3e;
-	font-size: 40px;
-	font-weight: bold;
-	text-align: center;
-	margin: 0;
-	padding: 0;
-	vertical-align: middle;
+.headerImage {
+	transform: scale(1.0, 1.0);
+	opacity: 0.1;
+	z-index: 1;
+	pointer-events: none;
+	width: 100%;
+}
+
+#socials {
+	height: 45px;
+	position: absolute;
+	bottom: 0px;
+	left: calc(50%);
+	transform: matrix(0.5, 0, 0, 0.5, 0, 0);	
 }

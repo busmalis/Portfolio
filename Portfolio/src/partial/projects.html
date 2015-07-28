@@ -2,13 +2,30 @@
 
 	<!-- Projects -->
 	<div id="contentWrapperProjects">
+		<div id="ProjectHeader">
+			<div id="projectHeaderImageWrapper">
+				<h1>PROJECTS</h1>
+				<img class="headerImage" src="lib/Fjugesta98.jpg">
+			</div>
+		</div>
 		<div id="ProjectWrapper" ng-repeat="project in projects">
 			<div id="ProjectWrapperBlock">
-				<h3>{{ project.name }}</h3>
-				<p>{{ project.descriptionShort }}</p>
-				<a href="#/projects/{{ projects.indexOf(project) }}">VIEW PROJECT</a>
+				<h2>{{ project.name }}</h2>
+				<ul>
+					<li>Role: Development</li>
+					<li>Platform(s): {{ project.location }}</li>
+				</ul>
+				<p>{{ project.description }}</p>
+				<div id="socials">
+					<a class="gitHub" ng-show="project.gitHubName" target="_blank"
+						href="https://github.com/{{ project.gitHubName }}"></a>
+				</div>
+				<!-- <a href="#/projects/{{ projects.indexOf(project) }}">VIEW PROJECT</a>
+				 -->
 			</div>
-			<img class="projectImage" src="lib/{{ project.image }}.png">
+			<div class="projectImageWrapper">
+				<img class="projectImage" ng-src="lib/{{ project.image }}.png">
+			</div>
 		</div>
 	</div>
 </div>

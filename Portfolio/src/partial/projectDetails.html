@@ -1,14 +1,22 @@
 <div id="contentWrapper">
 
 	<!-- ProjectDetails -->
-	<div id="contentWrapperProjects">
-		<div id="ProjectWrapper">
-			<div id="ProjectWrapperBlock">
-				<h3>{{ project.name }}</h3>
-				<p>{{ project.location }}</p>
-				{{ project.description }}
+	<div id="contentWrapperProjectDetails">
+		<div id="ProjectDetailsHeader">
+			<h3>{{ project.name }}</h3>
+			<p>{{ project.location }}</p>
+			{{ project.description }}
+			<div id="socials">
+				<a class="gitHub" target="_blank"
+					href="https://github.com/{{ project.gitHubName }}"></a>
 			</div>
-			<img class="projectImage" src="lib/{{ project.image }}.png">
+		</div>
+		<div id="ProjectDetailsWrapper" ng-repeat="stage in project.stages">
+			<div id="ProjectDetailsWrapperBlock">
+				<h4>{{ stage.name }}</h4>
+				<p>{{ stage.description }}</p>
+			</div>
+			<img class="projectDetailsImage" src="lib/{{ project.image }}.png">
 		</div>
 	</div>
 </div>
