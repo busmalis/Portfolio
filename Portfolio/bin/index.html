@@ -9,18 +9,24 @@
 <script src="scripts/MainController.js"></script>
 <link rel="stylesheet" href="css/main.css">
 
+<title>Johan Remes</title>
 <head>
-<title>Name</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="/" />
 </head>
 
 <body ng-app="portfolioApp" ng-controller="mainCtrl" resize>
 
 	<!-- Mobile Version -->
-	<div id="mobileVersionUnavailable" ng-hide="getShowMobileVersion()">
-		NO MOBILE VERSION AVAILABLE
-	</div> 
-	
+	<div id="mobileVersionUnavailableWrapper" ng-hide="getShowMobileVersion()">
+		<div id="mobileVersionUnavailable">
+			<img class="mobileVersionUnavailableImage" src="lib/creepy-157657_640.png"><p class="mobileVersionUnavailableText">
+			NO MOBILE VERSION
+				AVAILABLE</p></img>
+			
+		</div>
+	</div>
+
 	<div id="container" ng-show="getShowMobileVersion()">
 		<div ng-include="'partial/header.html'"></div>
 		<div ng-view></div>

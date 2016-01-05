@@ -106,10 +106,17 @@ html, body {
 
 #profileTextContainer {	
 	height: 400px;
-	width: 50%;
+	width: 100%;
 	position: absolute;
-	transform: translateX(50%);
 	padding: 1em 0 0 0;
+}
+
+#profileTextContainer p {	
+	text-align: center;
+	font-size: 3em;
+	letter-spacing: 10px;
+	max-width: 1000px;
+	margin: 0 auto 50px;
 }
 
 #contentWrapperExpEdu {
@@ -123,11 +130,14 @@ html, body {
 	bottom: 0px;
 }
 
+#contentWrapperExpEdu h2 {
+	color: #ff9e3e;
+}
+
 #contentWrapperExperience {
 	float: left;
 	width: calc(50%);
 }
-
 #contentWrapperEducation {
 	float: right;
 	width: calc(50%);
@@ -187,9 +197,9 @@ html, body {
 	height: 200px;
 }
 
-#ProjectHeader h1 {
+#ProjectHeader p {
 	width: 100%;
-	font-size: 4em;
+	font-size: 3em;
 	text-align: center;
 	position: absolute;
 }
@@ -203,6 +213,7 @@ html, body {
 #ProjectWrapper:nth-child(odd) {
 	right: 25%;
 	padding-left: 50%;
+	width: 50%;
 }
 
 #ProjectWrapper:nth-child(odd) > .projectImageWrapper {
@@ -223,6 +234,11 @@ html, body {
 	text-transform: uppercase;
 }
 
+#ProjectWrapperBlock h2 {
+	text-transform: uppercase;
+	color: #ff9e3e;
+}
+
 .projectImageWrapper {
 	width: 50%;
 	height: 400px;
@@ -234,8 +250,7 @@ html, body {
 
 .projectImage {
 	width: 100%;
-	height: auto;
-	max-height: 400px;	
+	height: 100%;
 	opacity: 1.0;
 	z-index: 1;
 	pointer-events: none;
@@ -271,7 +286,7 @@ html, body {
 
 #ProjectDetailsWrapper {
 	width: 50%;
-	height: 300px;
+	height: 400px;
 	display: table;
 }
 
@@ -288,7 +303,7 @@ html, body {
 
 .projectDetailsImage {
 	width: 50%;
-	height: 300px;
+	height: 400px;
 	transform: scale(1.0, 1.0);
 	opacity: 1.0;
 	z-index: 1;

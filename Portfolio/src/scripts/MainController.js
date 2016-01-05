@@ -54,44 +54,36 @@ app.controller('mainCtrl', [
 
 			function getGeneral() {
 
-				$scope.name = "Name";
-				$scope.descriptionShort = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-				$scope.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-				$scope.linkedInName = "Name";
-				$scope.gitHubName = "Name";
+				$scope.name = "Johan Remes";
+				$scope.descriptionShort = "My name is Johan Remes, I'm a Programmer.";
+				$scope.description = "We cannot solve our problems with the same thinking we used when we created them.";
+				$scope.linkedInName = "johan-remes/60/a13/55";
+				$scope.gitHubName = "Busmalis";
 				
 				$scope.experience = [{
-					fromYear : 2005,
-					toYear : 2007,
-					companyName : "Mobile Inc.",
-					location : "Washington",
-					descriptionShort : "Epic mobile paradise",
-					description : "Create some mobile apps"					
-				},
-				{
-					fromYear : 2007,
-					toYear : 2008,
-					companyName : "Game Ltd.",
-					location : "New York",
-					descriptionShort : "Developing games",
-					description : "Development of the greatest games"					
-				},
-				{
-					fromYear : 2008,
+					fromYear : 2011,
 					toYear : 2015,
-					companyName : "Creative Corp.",
-					location : "Philadelphia",
-					descriptionShort : "CEO",
-					description : "Owning the business"					
+					companyName : "ABB AB",
+					location : "",
+					descriptionShort : "Systems Engineer",
+					description : ""					
+				},
+				{
+					fromYear : 2012,
+					toYear : 2015,
+					companyName : "ABB AB",
+					location : "",
+					descriptionShort : "Product Manager (GWT)",
+					description : ""					
 				}];
 				
 				$scope.education = [{
-						fromYear : 2001,
-						toYear : 2005,
-						name : "MIT",
-						location : "Cambridge",
-						descriptionShort : "M.Sc Computer Engineering",
-						description : "Major in Latin"					
+						fromYear : 2006,
+						toYear : 2010,
+						name : "Örebro Universitet",
+						location : "",
+						descriptionShort : "B.Sc Computer Engineering",
+						description : ""					
 				}];
 				
 //				JSONFactory.getGeneral().success(function(data) {
@@ -139,12 +131,36 @@ app.controller('projectCtrl', [ '$scope', 'JSONFactory',
 			function getGeneral() {
 				$scope.projects = [
 				{
-					name : "App",
+					name : "Tr1List",
 					location : "Android",
-					description : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+					description : "This is an online list-application that syncs between users. The user can add/edit/remove and even share custom lists with other users. The advantage of this app against other existing apps is the online synchronization of all lists",
 					descriptionShort : "DescriptionShort",
 					image : "projectAndroid",
-					gitHubName: ""
+					gitHubName: "busmalis/Tr1List"
+				},
+				{
+					name : "Portfolio",
+					location : "AngularJS",
+					description : "Portfolio is a website displaying my experiences, educations and projects. The application is build with AngularJS framework and it uses a client-server communication with a .NET Web Service returning JSON results.",
+					descriptionShort : "DescriptionShort",
+					image : "projectAngularjs",
+					gitHubName: "busmalis/Portfolio"
+				},
+				{
+					name : "Tr1Golf",
+					location : "Android",
+					description : "Tr1Golf is an Android application for Frisbee golfers, the main use of the application is to keep track of your score during the golf round, also keep track of your teammates. During the golf round the application uses a service to upload the latest score.",
+					descriptionShort : "DescriptionShort",
+					image : "projectAndroid",
+					gitHubName: "busmalis/Tr1Golf"
+				},
+				{
+					name : "SimpleGame",
+					location : "CraftyJS",
+					description : "Very simple game, try to connect the red and blue boxes with WASD and Arrow Keys www.johanremes.se/SimpleGame",
+					descriptionShort : "Very simple game",
+					image : "SimpleGame",
+					gitHubName: "busmalis/SimpleGame"
 				}];
 				// JSONFactory.getProjects().success(function(data) {
 				// $scope.projects = data.projects;
